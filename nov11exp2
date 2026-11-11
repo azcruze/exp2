@@ -1,0 +1,101 @@
+okay move to exp 2 rihgt away
+Sure! Moving to Experiment 2 – Containerization of a Python Flask Application Using Docker.
+
+Aim
+To develop a Python Flask web application, containerize it using Docker, and run it inside a Docker container.
+
+Procedure
+Create a project folder named flask-docker.
+
+Navigate into the project folder.
+
+Create app.py using Notepad.
+
+Write a Flask application that displays Hello.
+
+Create requirements.txt and specify Flask as the dependency.
+
+Create a Dockerfile with the Python base image, working directory, application files, and execution command.
+
+Build the Docker image using docker build.
+
+Verify the image using docker images.
+
+Run the Docker container using port mapping.
+
+Open http://localhost:5000 in a browser.
+
+Verify that the application displays Hello.
+
+Log in to Docker Hub.
+
+Tag the Docker image with the Docker Hub username.
+
+Push the image to Docker Hub.
+
+Verify that the image is available in the Docker Hub repository.
+
+Complete commands
+Open CMD and execute these commands one at a time:
+
+mkdir flask-docker
+cd flask-docker
+
+notepad app.py
+Paste into app.py:
+
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Hello"
+
+app.run(host='0.0.0.0')
+
+Save and close Notepad.
+
+Create requirements file:
+
+notepad requirements.txt
+Paste:
+
+flask
+Save and close.
+
+Create Dockerfile:
+
+notepad Dockerfile
+Paste:
+
+FROM python:3.11
+
+WORKDIR /app
+
+COPY . .
+
+RUN pip install flask
+
+EXPOSE 5000
+
+CMD ["python", "app.py"]
+
+Save the file as Dockerfile, ensuring it is not saved as Dockerfile.txt.
+
+Build and run:
+
+docker build -t flask-app .
+docker images
+docker run -p 5000:5000 flask-app
+Open http://localhost:5000 in your browser. Expected output: Hello.
+
+Stop the running container with Ctrl + C in CMD.
+
+Log in and push to Docker Hub:
+
+docker login
+docker tag flask-app azcruze/flask-app:v1
+docker push azcruze/flask-app:v1
+Result
+The Flask application was successfully containerized using Docker, executed in a container, and uploaded to Docker Hub.
