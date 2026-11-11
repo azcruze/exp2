@@ -1,0 +1,11 @@
+I want you to check these 5 things to avoid common practical-exam errors:
+1. Folder name: flask-docker
+2. Python filename: app.py (not app.py.txt)
+3. Requirements filename: requirements.txt (not requirements.txt.txt)
+4. Dockerfile name: Dockerfile (not Dockerfile.txt)
+5. Docker Hub username: azcruze
+Also:
+- Make sure Docker Desktop is running.
+- Use port 5000 without another application occupying it.
+- Be connected to the internet when building and pushing the image.
+- Log in to Docker Hub before pushing.
